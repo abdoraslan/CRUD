@@ -1,0 +1,13 @@
+.link {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+.sidebar {    
+    display: flex;
+    justify-content: center;
+    padding:1em 0 .5em 1.5em ;
+  
+}

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Home from "./pages/Home";
+import { Route, Routes } from "react-router-dom";
+import CarDetails from "./pages/CarDetails";
+import AddingCar from "./pages/AddingCar";
+import EditCar from "./pages/EditCar";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Navbar />
+      <div className="row">
+        <div className="col-2 bg-body-secondary">
+          <Sidebar />
+        </div>
+        <div className="col-10">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cars/:carId" element={<CarDetails />} />
+            <Route path="/cars/add" element={<AddingCar />} />
+            <Route path="/cars" element={<EditCar />} />
+          </Routes>
+        </div>
+      </div>
+    </Fragment>
   );
-}
-
+};
 export default App;
